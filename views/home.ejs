@@ -1,0 +1,19 @@
+<%- include('partials/header') -%>
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+<% blogContents.forEach((element)=>{ %> <% if(element.post.length > 100){ %> <%
+const shortContent =element.post.substr(0,100)+"..."; %>
+<h1><%= element.title %></h1>
+<p>
+  <%= shortContent %><a
+    style="text-decoration: none"
+    href="/posts/<%=element._id%>"
+    >Read More</a
+  >
+</p>
+
+<% } else{ %>
+<h1><%= element.title %></h1>
+<p><%= element.post %></p>
+<% } %> <% }) %> <%- include('partials/footer') -%>
